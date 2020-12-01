@@ -1,11 +1,15 @@
+// import styled, {css} from 'styled-components';
+
+import WelcomeMessage from './WelcomeMessage';
+import AppLayout from './AppLayout';
 
 import './App.css';
 
 function App() {
   return (
-    <div>
-      test
-    </div>
+    <AppLayout>
+      <WelcomeMessage/>
+    </AppLayout>
   );
 }
 
