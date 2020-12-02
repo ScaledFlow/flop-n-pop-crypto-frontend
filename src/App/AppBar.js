@@ -2,6 +2,7 @@
 
 // import { findAllByDisplayValue } from '@testing-library/react';
 import styled, {css} from 'styled-components';
+import { AppContext } from './AppProvider';
 
 const Logo = styled.div`
   font-size: 1.5rem;
@@ -12,10 +13,10 @@ const Bar = styled.div`
   margin-bottom: 40px;
 `
 const ControlButtonElem = styled.div`
-cursor: pointer;
+  cursor: pointer;
   ${props => props.active && css`
-    text-shadow: 0px 0px 20px #00ff00;
-
+    // text-shadow: 0px 0px 20px #00ff00;
+    color: red;
 `}
 `
 
@@ -23,11 +24,18 @@ function toProperCase(lower) {
   return lower.charAt(0).toUpperCase() + lower.substr(1);
 }
 
-function ControlButton({name, active}){
+function ControlButton({name}){
   return (
-    <ControlButtonElem active={active}>
-      {toProperCase(name)}
-    </ControlButtonElem> 
+    <AppContext.Consumer>
+      {({page, setPage}) => (
+      <ControlButtonElem 
+        active={page === name}
+        onClick={() => setPage(name)}
+      >
+        {toProperCase(name)}
+      </ControlButtonElem> 
+      )}
+    </AppContext.Consumer>
   )
   }
 
@@ -36,8 +44,8 @@ export default function() {
     <Bar> 
       <Logo>CryptoDash</Logo>
       <div/>
-      <ControlButton active name="dashboard"/>
-      <ControlButton name="settings"/>
+      <ControlButton  name="dashboard"/>
+      <ControlButton  name="settings"/>
     </Bar>
   )
 }
