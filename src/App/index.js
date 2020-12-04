@@ -13,9 +13,9 @@ function App() {
     <AppLayout>
       <AppProvider>
         <AppBar/>
-        {/* <Content> */}
+        <Content>
           <Settings/>
-        {/* </Content> */}
+        </Content>
       </AppProvider>
     </AppLayout>
   );
