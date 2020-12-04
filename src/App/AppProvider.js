@@ -22,12 +22,11 @@ export class AppProvider extends React.Component {
 
   componentDidMount = () => {
     this.fetchCoins();
-    this.testFunction();
   }
 
   fetchCoins = async () => {
     let coinList = (await cc.coinList()).Data;
-    console.log(coinList);
+    this.setState({coinList});
   }
 
   confirmFavorites = () => {
