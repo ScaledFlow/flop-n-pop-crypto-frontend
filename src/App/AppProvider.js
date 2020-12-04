@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-// const cc = require('cryptocompare');
+const cc = require('cryptocompare');
 
 export const AppContext = React.createContext();
 
@@ -14,6 +14,20 @@ export class AppProvider extends React.Component {
       setPage: this.setPage,
       confirmFavorites: this.confirmFavorites
     }
+  }
+
+  testFunction = () => {
+    console.log('test function');
+  }
+
+  componentDidMount = () => {
+    this.fetchCoins();
+    this.testFunction();
+  }
+
+  fetchCoins = async () => {
+    let coinList = (await cc.coinList()).Data;
+    console.log(coinList);
   }
 
   confirmFavorites = () => {
@@ -36,8 +50,6 @@ export class AppProvider extends React.Component {
   setPage = page => this.setState({page});
  
   render() {
-    // console.log(this.state.page);
-    // console.log(this.props.children);
     return (
       <AppContext.Provider value={this.state}>
        {this.props.children}
@@ -45,5 +57,3 @@ export class AppProvider extends React.Component {
     )
   }
 }
-
-// export default AppProvider;
