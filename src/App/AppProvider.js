@@ -34,12 +34,11 @@ export class AppProvider extends React.Component {
   }
 
   addCoin = key => {
-    // let favorites = [...this.state.favorites];
-    console.log ("test");
-    // if(favorites.length < MAX_FAVORITES) {
-    //   favorites.push(key);
-    //   this.setState({favorites});
-    // }
+    let favorites = [...this.state.favorites];
+    if(favorites.length < MAX_FAVORITES) {
+      favorites.push(key);
+      this.setState({favorites});
+    }
   }
 
   confirmFavorites = () => {
