@@ -1,18 +1,31 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 import { AppContext } from '../App/AppProvider';
-import {SelectableTile} from "../Shared/Tile";
+import {SelectableTile, DisabledTile, DeletableTile} from "../Shared/Tile";
 import CoinHeaderGrid from "./CoinHeaderGrid";
 import CoinImage from "../Shared/CoinImage";
 
-export default function ({coinKey}) {
+function clickCoinHandler(topSection, coinKey, addCoin, removeCoin) {
+  return topSection ? () => {
+    removeCoin(coinKey)
+    } : () => {
+      addCoin(coinKey)
+    }
+  }
+
+export default function ({coinKey, topSection}) {
   return <AppContext.Consumer>
-    {({coinList}) => {
+    {({coinList, addCoin, removeCoin}) => {
       let coin = coinList[coinKey];
 
-      const TileClass = SelectableTile;
+      let TileClass = SelectableTile;
+      if (topSection) {
+        TileClass = DeletableTile;
+      }
       
-      return <TileClass>
+      return <TileClass
+        onClick={clickCoinHandler(topSection, coinKey, addCoin, removeCoin)}
+        >
         <CoinHeaderGrid name={coin.CoinName} symbol={coin.Symbol}/>
         <CoinImage coin={coin}/>
         </TileClass>

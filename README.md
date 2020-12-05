@@ -1,6 +1,7 @@
 
 npm i styled-components
 npm i cryptocompare
+npm i lodash
 
 # Getting Started with Create React App
 
