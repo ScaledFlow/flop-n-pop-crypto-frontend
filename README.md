@@ -2,6 +2,7 @@
 npm i styled-components
 npm i cryptocompare
 npm i lodash
+npm i fuzzy
 
 # Getting Started with Create React App
 
