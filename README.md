@@ -3,6 +3,7 @@ npm i styled-components
 npm i cryptocompare
 npm i lodash
 npm i fuzzy
+npm i react-highcharts
 
 # Getting Started with Create React App
 
