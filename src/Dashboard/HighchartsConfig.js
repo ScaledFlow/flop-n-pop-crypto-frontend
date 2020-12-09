@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-export default function () {
+export default function (historical) {
   return {
   title: {
     text: ''
@@ -20,7 +20,7 @@ export default function () {
       rangeDescription: 'Range: 2010 to 2017'
     }
   },
-
+  xAxis: {type: 'datetime'},
   legend: {
     layout: 'vertical',
     align: 'right',
@@ -53,10 +53,7 @@ export default function () {
   //   data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
   // }],
 
-  series: [{
-    name: 'Installation',
-    data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-  }],
+  series: historical,
 
 
   responsive: {

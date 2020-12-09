@@ -4,6 +4,7 @@ npm i cryptocompare
 npm i lodash
 npm i fuzzy
 npm i react-highcharts
+npm i moment
 
 # Getting Started with Create React App
 
