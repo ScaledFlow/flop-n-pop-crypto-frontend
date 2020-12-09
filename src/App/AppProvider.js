@@ -7,7 +7,7 @@ cc.setApiKey('3c59cfc705c90eb7ce012b1a27ba6126e08036fc5aabde8926a410f133a8a6da')
 export const AppContext = React.createContext();
 
 const MAX_FAVORITES = 10;
-const TIME_UNITS = 10;
+const TIME_UNITS = 48;
 
 export class AppProvider extends React.Component {
   constructor(props){
@@ -25,6 +25,7 @@ export class AppProvider extends React.Component {
       setCurrentFavorite: this.setCurrentFavorite,
       setFilteredCoins: this.setFilteredCoins,
       changeChartSelect: this.changeChartSelect
+   
     }
   }
 
